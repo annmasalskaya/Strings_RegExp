@@ -11,13 +11,14 @@ public class Main
     {
         String originalText=new String();
         String encodeText=new String();
+        String regex = "[^a-zA-Z|\\s|\\.|\\-]";  // Use any "non-word character" as a delimiter
         try
         {
             File file = new File("input.txt");
             Scanner scanner = new Scanner(file);
             while (scanner.hasNext())
             {
-                originalText+=scanner.next()+" ";
+                originalText+=scanner.next().replaceAll(regex,"") + " ";
             }
             scanner.close();
         }
@@ -61,7 +62,7 @@ public class Main
         boolean b = m.matches();
         System.out.println(b);
 
-        Pattern p1 = Pattern.compile("(device)"); // ищем наличие подстроки
+        Pattern p1 = Pattern.compile("device"); // ищем наличие подстроки
         Matcher m1 = p1.matcher(originalText);
         if (m1.find())
            System.out.println( "Подстрока : " + m1.group() +"\nначальная позиция : "+  m1.start()+ "\nконечная позиция : "+ m1.end());
@@ -70,5 +71,7 @@ public class Main
         {
             System.out.println("Подстрока не найдена.");
         }
+       
    }
+
 }
