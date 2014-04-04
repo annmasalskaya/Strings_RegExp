@@ -11,7 +11,7 @@ public class Main
     {
         String originalText=new String();
         String encodeText=new String();
-        String regex = "[^a-zA-Z|\\s|\\.|\\-]";  // Use any "non-word character" as a delimiter
+        String regex = "[^a-zA-Z|\\s|\\.|\\-]";
         try
         {
             File file = new File("input.txt");
@@ -71,7 +71,7 @@ public class Main
         {
             System.out.println("Подстрока не найдена.");
         }
-       
+
    }
 
 }
